@@ -1,0 +1,25 @@
+{
+    "reactionTime": "反応速度テスト",
+    "speedTest": "反応速度テスト",
+    "startTest": "テストスタート",
+    "noDataYet": "記録なし",
+    "settings": {
+        "settings": "設定",
+        "clearAllData": "データを消去"
+    },
+    "fullscreen": {
+        "tap": "タップ!",
+        "tapToStart": "タップしてスタート",
+        "tapWhenRed": "赤くなったらタップ!",
+        "score": "記録: ${count}秒\nタップで戻る",
+        "mistake": "早い!\nタップでリスタート",
+        "fastest": "最速: ${count}秒"
+    },
+    "speed": {
+        "speed": "スピード",
+        "superFast": "とても速い",
+        "fast": "速い",
+        "normal": "普通",
+        "slow": "遅い"
+    }
+}

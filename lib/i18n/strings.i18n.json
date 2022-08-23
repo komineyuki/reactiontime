@@ -1,0 +1,25 @@
+{
+    "reactionTime": "Reaction Time",
+    "speedTest": "Speed Test",
+    "startTest": "Start test",
+    "noDataYet": "No data yet",
+    "settings": {
+        "settings": "Settings",
+        "clearAllData": "Clear All Data"
+    },
+    "fullscreen": {
+        "tap": "Tap!",
+        "tapToStart": "Tap to start",
+        "tapWhenRed": "Tap when the screen turns red",
+        "score": "Time: ${count}s\nTap to back",
+        "mistake": "Too fast!\nTap to restart",
+        "fastest": "Fastest: ${count}s"
+    },
+    "speed": {
+        "speed": "Speed",
+        "superFast": "Super Fast",
+        "fast": "Fast",
+        "normal": "Normal",
+        "slow": "Slow"
+    }
+}
