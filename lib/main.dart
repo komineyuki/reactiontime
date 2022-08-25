@@ -114,8 +114,7 @@ Widget startButton(BuildContext context, Widget page,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
-        backgroundColor:
-            darkmodeDisabled(context) ? Colors.white : Colors.white),
+        primary: darkmodeDisabled(context) ? Colors.white : Colors.white),
     onPressed: () =>
         Navigator.of(context).push(MaterialPageRoute(builder: (context) {
       return page;
