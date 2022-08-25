@@ -3,23 +3,31 @@
     "speedTest": "反応速度テスト",
     "startTest": "テストスタート",
     "noDataYet": "記録なし",
+    "fastest": "最速: ${count}秒",
     "settings": {
         "settings": "設定",
-        "clearAllData": "データを消去"
+        "clearAllData": "データを消去",
+        "clearedAllData": "データを消去しました。"
     },
     "fullscreen": {
         "tap": "タップ!",
         "tapToStart": "タップしてスタート",
         "tapWhenRed": "赤くなったらタップ!",
         "score": "記録: ${count}秒\nタップで戻る",
-        "mistake": "早い!\nタップでリスタート",
-        "fastest": "最速: ${count}秒"
+        "mistake": "早い!\nタップでリスタート"
+    },
+    "ninebuttons": {
+        "ninebuttons": "９つのボタン",
+        "result": "時間: ${count}秒",
+        "tapred": "赤をタップ！",
+        "failure": "失敗！"
     },
     "speed": {
         "speed": "スピード",
         "superFast": "とても速い",
         "fast": "速い",
         "normal": "普通",
-        "slow": "遅い"
+        "slow": "遅い",
+        "areyoukiddingme": "マジで言ってる?"
     }
 }

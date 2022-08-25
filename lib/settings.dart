@@ -22,7 +22,11 @@ class _Settings extends State<Settings> {
                 child: SingleChildScrollView(
                     child: Column(mainAxisSize: MainAxisSize.min, children: [
           ElevatedButton(
-              onPressed: () => prefs.clear(),
+              onPressed: () {
+                prefs.clear();
+                ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(t.settings.clearedAllData)));
+              },
               child: Text(t.settings.clearAllData))
         ])))));
   }

@@ -3,23 +3,31 @@
     "speedTest": "Speed Test",
     "startTest": "Start test",
     "noDataYet": "No data yet",
+    "fastest": "Fastest: ${count}s",
     "settings": {
         "settings": "Settings",
-        "clearAllData": "Clear All Data"
+        "clearAllData": "Clear All Data",
+        "clearedAllData": "Cleared all data"
     },
     "fullscreen": {
         "tap": "Tap!",
         "tapToStart": "Tap to start",
         "tapWhenRed": "Tap when the screen turns red",
         "score": "Time: ${count}s\nTap to back",
-        "mistake": "Too fast!\nTap to restart",
-        "fastest": "Fastest: ${count}s"
+        "mistake": "Too fast!\nTap to restart"
+    },
+    "ninebuttons": {
+        "ninebuttons": "9 Buttons",
+        "result": "Time: ${count}s",
+        "tapred": "Tap Red!",
+        "failure": "Failure!"
     },
     "speed": {
         "speed": "Speed",
         "superFast": "Super Fast",
         "fast": "Fast",
         "normal": "Normal",
-        "slow": "Slow"
+        "slow": "Slow",
+        "areyoukiddingme": "Are you kidding me?"
     }
 }

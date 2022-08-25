@@ -9,59 +9,69 @@ import 'package:reactiontime/main.dart';
 
 import 'i18n/strings.g.dart' as i18n;
 
-class FullScreenModel extends ChangeNotifier {
+class FullScreen extends StatefulWidget {
+  @override
+  _FullScreen createState() => _FullScreen();
+}
+
+class _FullScreen extends State<FullScreen> {
   int phase = 0;
   String centerText = i18n.t.fullscreen.tapToStart;
   String bottomText = "";
-  Color appBarColor = Colors.green;
+  Color appBarColor = Colors.blue;
 
   void setPhase(int i) {
-    phase = i;
-    notifyListeners();
+    if (mounted) {
+      setState(() => phase = i);
+    }
   }
 
   void setAppBarColor(Color c) {
-    appBarColor = c;
-    notifyListeners();
+    if (mounted) {
+      setState(() => appBarColor = c);
+    }
   }
 
   void setCenterText(String str) {
-    centerText = str;
-    notifyListeners();
+    if (mounted) {
+      setState(() => centerText = str);
+    }
   }
 
   void setBottomText(double t) {
     String b = "";
-    if (t <= 0.1) {
+    if (t <= 0.18) {
       b = i18n.t.speed.superFast;
-    } else if (t <= 0.2) {
+    } else if (t <= 0.22) {
       b = i18n.t.speed.fast;
     } else if (t <= 0.3) {
       b = i18n.t.speed.normal;
-    } else {
+    } else if (t <= 10) {
       b = i18n.t.speed.slow;
+    } else {
+      b = i18n.t.speed.areyoukiddingme;
     }
-    bottomText = "${i18n.t.speed.speed}: $b";
-    notifyListeners();
+    if (mounted) {
+      setState(() => bottomText = "${i18n.t.speed.speed}: $b");
+    }
   }
 
   void removeBottomText() {
-    bottomText = "";
-    notifyListeners();
+    if (mounted) {
+      setState(() => bottomText = "");
+    }
   }
-}
 
-class FullScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: context.watch<FullScreenModel>().appBarColor,
+          backgroundColor: appBarColor,
           title: Text(i18n.t.speedTest),
         ),
         body: Container(
-            color: context.watch<FullScreenModel>().phase <= 1
-                ? context.watch<FullScreenModel>().phase == 0
+            color: phase <= 1
+                ? phase == 0
                     ? Colors.blue
                     : Colors.green
                 : Colors.red,
@@ -69,78 +79,74 @@ class FullScreen extends StatelessWidget {
                 color: Colors.transparent,
                 child: InkWell(
                     onTapDown: (details) {
-                      context.read<FullScreenModel>().phase <= 1
-                          ? onTapInkwell(context)
-                          : onTapToStop(context);
+                      phase <= 1 ? onTapInkwell(context) : onTapToStop(context);
                     },
                     child: Container(
                       child: Center(
                           child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text(context.watch<FullScreenModel>().centerText,
+                          Text(centerText,
                               textAlign: TextAlign.center,
                               style: const TextStyle(
                                   color: Colors.white, fontSize: 30)),
-                          Text(context.watch<FullScreenModel>().bottomText)
+                          Text(bottomText)
                         ],
                       )),
                     )))));
   }
-}
 
-Stopwatch stpwtc = Stopwatch();
-late Timer _timer;
+  Stopwatch stpwtc = Stopwatch();
+  late Timer _timer;
 
-void onTapInkwell(BuildContext c) async {
-  c.read<FullScreenModel>().removeBottomText();
-  if (c.read<FullScreenModel>().phase == 1) {
-    _timer.cancel();
-    stpwtc.stop();
+  void onTapInkwell(BuildContext c) async {
+    removeBottomText();
+    if (phase == 1) {
+      _timer.cancel();
+      stpwtc.stop();
+      stpwtc.reset();
+      setPhase(0);
+      setCenterText(i18n.t.fullscreen.mistake);
+      setAppBarColor(Colors.blue);
+      return;
+    }
+
     stpwtc.reset();
-    c.read<FullScreenModel>().setPhase(0);
-    c.read<FullScreenModel>().setCenterText(i18n.t.fullscreen.mistake);
-    c.read<FullScreenModel>().setAppBarColor(Colors.blue);
-    return;
+    setPhase(1);
+    setCenterText(i18n.t.fullscreen.tapWhenRed);
+    setAppBarColor(Colors.green);
+    var t = Random().nextInt(4000) + 2000;
+    _timer = Timer(Duration(milliseconds: t), () {
+      setPhase(2);
+      setCenterText(i18n.t.fullscreen.tap);
+      setAppBarColor(Colors.red);
+      stpwtc.start();
+    });
   }
 
-  stpwtc.reset();
-  c.read<FullScreenModel>().setPhase(1);
-  c.read<FullScreenModel>().setCenterText(i18n.t.fullscreen.tapWhenRed);
-  c.read<FullScreenModel>().setAppBarColor(Colors.green);
-  var t = Random().nextInt(4000) + 2000;
-  _timer = Timer(Duration(milliseconds: t), () {
-    c.read<FullScreenModel>().setPhase(2);
-    c.read<FullScreenModel>().setCenterText(i18n.t.fullscreen.tap);
-    c.read<FullScreenModel>().setAppBarColor(Colors.red);
-    stpwtc.start();
-  });
-}
+  void onTapToStop(BuildContext c) {
+    removeBottomText();
+    if (phase == 3) {
+      setPhase(0);
+      setCenterText(i18n.t.fullscreen.tapToStart);
+      setAppBarColor(Colors.blue);
+      return;
+    }
 
-void onTapToStop(BuildContext c) {
-  c.read<FullScreenModel>().removeBottomText();
-  if (c.read<FullScreenModel>().phase == 3) {
-    c.read<FullScreenModel>().setPhase(0);
-    c.read<FullScreenModel>().setCenterText(i18n.t.fullscreen.tapToStart);
-    c.read<FullScreenModel>().setAppBarColor(Colors.blue);
-    return;
+    stpwtc.stop();
+    setPhase(3);
+    double score = stpwtc.elapsedMilliseconds / 1000;
+    setCenterText(i18n.t.fullscreen.score(count: (score).toString()));
+    setBottomText(score);
+    if (prefs.getDouble("fullscreen_fastest") == null ||
+        prefs.getDouble("fullscreen_fastest")! > score) {
+      prefs.setDouble("fullscreen_fastest", score);
+    }
   }
 
-  stpwtc.stop();
-  c.read<FullScreenModel>().setPhase(3);
-  double score = stpwtc.elapsedMilliseconds / 1000;
-  c
-      .read<FullScreenModel>()
-      .setCenterText(i18n.t.fullscreen.score(count: (score).toString()));
-  c.read<FullScreenModel>().setBottomText(score);
-  if (prefs.getDouble("fullscreen_fastest") == null ||
-      prefs.getDouble("fullscreen_fastest")! > score) {
-    prefs.setDouble("fullscreen_fastest", score);
+  void initFullScreen(BuildContext context) {
+    centerText = i18n.t.fullscreen.tapToStart;
+    phase = 0;
+    setAppBarColor(Colors.blue);
   }
-}
-
-void initFullScreen(BuildContext context) {
-  context.read<FullScreenModel>().centerText = i18n.t.fullscreen.tapToStart;
-  context.read<FullScreenModel>().phase = 0;
-  context.read<FullScreenModel>().setAppBarColor(Colors.blue);
 }

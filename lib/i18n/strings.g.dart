@@ -3,9 +3,9 @@
  * Generated file. Do not edit.
  *
  * Locales: 2
- * Strings: 34 (17.0 per locale)
+ * Strings: 46 (23.0 per locale)
  *
- * Built on 2022-08-23 at 14:30 UTC
+ * Built on 2022-08-25 at 06:18 UTC
  */
 
 import 'package:flutter/widgets.dart';
@@ -312,8 +312,10 @@ class _StringsEn {
 	String get speedTest => 'Speed Test';
 	String get startTest => 'Start test';
 	String get noDataYet => 'No data yet';
+	String fastest({required Object count}) => 'Fastest: ${count}s';
 	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
 	late final _StringsFullscreenEn fullscreen = _StringsFullscreenEn._(_root);
+	late final _StringsNinebuttonsEn ninebuttons = _StringsNinebuttonsEn._(_root);
 	late final _StringsSpeedEn speed = _StringsSpeedEn._(_root);
 }
 
@@ -326,6 +328,7 @@ class _StringsSettingsEn {
 	// Translations
 	String get settings => 'Settings';
 	String get clearAllData => 'Clear All Data';
+	String get clearedAllData => 'Cleared all data';
 }
 
 // Path: fullscreen
@@ -340,7 +343,19 @@ class _StringsFullscreenEn {
 	String get tapWhenRed => 'Tap when the screen turns red';
 	String score({required Object count}) => 'Time: ${count}s\nTap to back';
 	String get mistake => 'Too fast!\nTap to restart';
-	String fastest({required Object count}) => 'Fastest: ${count}s';
+}
+
+// Path: ninebuttons
+class _StringsNinebuttonsEn {
+	_StringsNinebuttonsEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get ninebuttons => '9 Buttons';
+	String result({required Object count}) => 'Time: ${count}s';
+	String get tapred => 'Tap Red!';
+	String get failure => 'Failure!';
 }
 
 // Path: speed
@@ -355,6 +370,7 @@ class _StringsSpeedEn {
 	String get fast => 'Fast';
 	String get normal => 'Normal';
 	String get slow => 'Slow';
+	String get areyoukiddingme => 'Are you kidding me?';
 }
 
 // Path: <root>
@@ -377,8 +393,10 @@ class _StringsJa implements _StringsEn {
 	@override String get speedTest => '反応速度テスト';
 	@override String get startTest => 'テストスタート';
 	@override String get noDataYet => '記録なし';
+	@override String fastest({required Object count}) => '最速: ${count}秒';
 	@override late final _StringsSettingsJa settings = _StringsSettingsJa._(_root);
 	@override late final _StringsFullscreenJa fullscreen = _StringsFullscreenJa._(_root);
+	@override late final _StringsNinebuttonsJa ninebuttons = _StringsNinebuttonsJa._(_root);
 	@override late final _StringsSpeedJa speed = _StringsSpeedJa._(_root);
 }
 
@@ -391,6 +409,7 @@ class _StringsSettingsJa implements _StringsSettingsEn {
 	// Translations
 	@override String get settings => '設定';
 	@override String get clearAllData => 'データを消去';
+	@override String get clearedAllData => 'データを消去しました。';
 }
 
 // Path: fullscreen
@@ -405,7 +424,19 @@ class _StringsFullscreenJa implements _StringsFullscreenEn {
 	@override String get tapWhenRed => '赤くなったらタップ!';
 	@override String score({required Object count}) => '記録: ${count}秒\nタップで戻る';
 	@override String get mistake => '早い!\nタップでリスタート';
-	@override String fastest({required Object count}) => '最速: ${count}秒';
+}
+
+// Path: ninebuttons
+class _StringsNinebuttonsJa implements _StringsNinebuttonsEn {
+	_StringsNinebuttonsJa._(this._root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get ninebuttons => '９つのボタン';
+	@override String result({required Object count}) => '時間: ${count}秒';
+	@override String get tapred => '赤をタップ！';
+	@override String get failure => '失敗！';
 }
 
 // Path: speed
@@ -420,6 +451,7 @@ class _StringsSpeedJa implements _StringsSpeedEn {
 	@override String get fast => '速い';
 	@override String get normal => '普通';
 	@override String get slow => '遅い';
+	@override String get areyoukiddingme => 'マジで言ってる?';
 }
 
 /// Flat map(s) containing all translations.
@@ -432,19 +464,25 @@ extension on _StringsEn {
 			'speedTest': 'Speed Test',
 			'startTest': 'Start test',
 			'noDataYet': 'No data yet',
+			'fastest': ({required Object count}) => 'Fastest: ${count}s',
 			'settings.settings': 'Settings',
 			'settings.clearAllData': 'Clear All Data',
+			'settings.clearedAllData': 'Cleared all data',
 			'fullscreen.tap': 'Tap!',
 			'fullscreen.tapToStart': 'Tap to start',
 			'fullscreen.tapWhenRed': 'Tap when the screen turns red',
 			'fullscreen.score': ({required Object count}) => 'Time: ${count}s\nTap to back',
 			'fullscreen.mistake': 'Too fast!\nTap to restart',
-			'fullscreen.fastest': ({required Object count}) => 'Fastest: ${count}s',
+			'ninebuttons.ninebuttons': '9 Buttons',
+			'ninebuttons.result': ({required Object count}) => 'Time: ${count}s',
+			'ninebuttons.tapred': 'Tap Red!',
+			'ninebuttons.failure': 'Failure!',
 			'speed.speed': 'Speed',
 			'speed.superFast': 'Super Fast',
 			'speed.fast': 'Fast',
 			'speed.normal': 'Normal',
 			'speed.slow': 'Slow',
+			'speed.areyoukiddingme': 'Are you kidding me?',
 		};
 	}
 }
@@ -456,19 +494,25 @@ extension on _StringsJa {
 			'speedTest': '反応速度テスト',
 			'startTest': 'テストスタート',
 			'noDataYet': '記録なし',
+			'fastest': ({required Object count}) => '最速: ${count}秒',
 			'settings.settings': '設定',
 			'settings.clearAllData': 'データを消去',
+			'settings.clearedAllData': 'データを消去しました。',
 			'fullscreen.tap': 'タップ!',
 			'fullscreen.tapToStart': 'タップしてスタート',
 			'fullscreen.tapWhenRed': '赤くなったらタップ!',
 			'fullscreen.score': ({required Object count}) => '記録: ${count}秒\nタップで戻る',
 			'fullscreen.mistake': '早い!\nタップでリスタート',
-			'fullscreen.fastest': ({required Object count}) => '最速: ${count}秒',
+			'ninebuttons.ninebuttons': '９つのボタン',
+			'ninebuttons.result': ({required Object count}) => '時間: ${count}秒',
+			'ninebuttons.tapred': '赤をタップ！',
+			'ninebuttons.failure': '失敗！',
 			'speed.speed': 'スピード',
 			'speed.superFast': 'とても速い',
 			'speed.fast': '速い',
 			'speed.normal': '普通',
 			'speed.slow': '遅い',
+			'speed.areyoukiddingme': 'マジで言ってる?',
 		};
 	}
 }
