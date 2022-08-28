@@ -13,7 +13,7 @@
         "tap": "يدفع!",
         "tapToStart": "انقر للبدء",
         "tapWhenRed": "انتظر الأحمر",
-        "score": "الوقت: ${count} ثوانٍ \n انقر للرجوع",
+        "score": "الوقت: ${count} ثوانٍ\nانقر للرجوع",
         "mistake": "سريع جدا!"
     },
     "ninebuttons": {
