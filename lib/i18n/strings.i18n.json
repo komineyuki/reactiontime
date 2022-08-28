@@ -12,7 +12,7 @@
     "fullscreen": {
         "tap": "Tap!",
         "tapToStart": "Tap to start",
-        "tapWhenRed": "Tap when the screen turns red",
+        "tapWhenRed": "Wait for red",
         "score": "Time: ${count}s\nTap to back",
         "mistake": "Too fast!\nTap to restart"
     },

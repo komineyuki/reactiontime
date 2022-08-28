@@ -38,6 +38,7 @@ class _NineButtons extends State<NineButtons> {
             const SizedBox(height: 10),
             GridView.count(
                 shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 crossAxisCount: 3,
                 padding: EdgeInsets.all(10.0),
                 mainAxisSpacing: 5,
@@ -87,11 +88,11 @@ class _NineButtons extends State<NineButtons> {
   }
 
   String speed(double _time) {
-    if (_time <= 4.5) {
+    if (_time <= 3.8) {
       return t.speed.superFast;
-    } else if (_time <= 4.9) {
+    } else if (_time <= 4.2) {
       return t.speed.fast;
-    } else if (_time <= 5.5) {
+    } else if (_time <= 4.8) {
       return t.speed.normal;
     } else if (_time <= 30) {
       return t.speed.slow;

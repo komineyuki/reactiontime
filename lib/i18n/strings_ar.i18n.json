@@ -1,0 +1,33 @@
+{
+    "reactionTime": "وقت رد الفعل",
+    "speedTest": "اختبار السرعة",
+    "startTest": "ابدأ الاختبار",
+    "noDataYet": "لا توجد بيانات حتى الآن",
+    "fastest": "الأسرع: ${count} ثانية",
+    "settings": {
+        "settings": "إعدادات",
+        "clearAllData": "مسح كافة البيانات",
+        "clearedAllData": "محو جميع البيانات"
+    },
+    "fullscreen": {
+        "tap": "يدفع!",
+        "tapToStart": "انقر للبدء",
+        "tapWhenRed": "انتظر الأحمر",
+        "score": "الوقت: ${count} ثوانٍ \n انقر للرجوع",
+        "mistake": "سريع جدا!"
+    },
+    "ninebuttons": {
+        "ninebuttons": "9 أزرار",
+        "result": "الوقت: ${count} ثواني",
+        "tapred": "اضغط على الأحمر!",
+        "failure": "بالفشل!"
+    },
+    "speed": {
+        "speed": "سرعة",
+        "superFast": "سريع جدا",
+        "fast": "سريع",
+        "normal": "طبيعي",
+        "slow": "بطيء",
+        "areyoukiddingme": "هل تمزح معي؟"
+    }
+}
