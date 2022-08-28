@@ -2,10 +2,10 @@
 /*
  * Generated file. Do not edit.
  *
- * Locales: 2
- * Strings: 46 (23.0 per locale)
+ * Locales: 3
+ * Strings: 81 (27.0 per locale)
  *
- * Built on 2022-08-25 at 06:18 UTC
+ * Built on 2022-08-28 at 11:58 UTC
  */
 
 import 'package:flutter/widgets.dart';
@@ -21,6 +21,7 @@ AppLocale _currLocale = _baseLocale;
 /// - if (LocaleSettings.currentLocale == AppLocale.en) // locale check
 enum AppLocale {
 	en, // 'en' (base locale, fallback)
+	ar, // 'ar'
 	ja, // 'ja'
 }
 
@@ -148,6 +149,7 @@ class AppLocaleUtils {
 // translation instances
 
 late _StringsEn _translationsEn = _StringsEn.build();
+late _StringsAr _translationsAr = _StringsAr.build();
 late _StringsJa _translationsJa = _StringsJa.build();
 
 // extensions for AppLocale
@@ -160,6 +162,7 @@ extension AppLocaleExtensions on AppLocale {
 	_StringsEn get translations {
 		switch (this) {
 			case AppLocale.en: return _translationsEn;
+			case AppLocale.ar: return _translationsAr;
 			case AppLocale.ja: return _translationsJa;
 		}
 	}
@@ -174,6 +177,7 @@ extension AppLocaleExtensions on AppLocale {
 	_StringsEn build() {
 		switch (this) {
 			case AppLocale.en: return _StringsEn.build();
+			case AppLocale.ar: return _StringsAr.build();
 			case AppLocale.ja: return _StringsJa.build();
 		}
 	}
@@ -181,6 +185,7 @@ extension AppLocaleExtensions on AppLocale {
 	String get languageTag {
 		switch (this) {
 			case AppLocale.en: return 'en';
+			case AppLocale.ar: return 'ar';
 			case AppLocale.ja: return 'ja';
 		}
 	}
@@ -188,6 +193,7 @@ extension AppLocaleExtensions on AppLocale {
 	Locale get flutterLocale {
 		switch (this) {
 			case AppLocale.en: return const Locale.fromSubtags(languageCode: 'en');
+			case AppLocale.ar: return const Locale.fromSubtags(languageCode: 'ar');
 			case AppLocale.ja: return const Locale.fromSubtags(languageCode: 'ja');
 		}
 	}
@@ -197,6 +203,7 @@ extension StringAppLocaleExtensions on String {
 	AppLocale? toAppLocale() {
 		switch (this) {
 			case 'en': return AppLocale.en;
+			case 'ar': return AppLocale.ar;
 			case 'ja': return AppLocale.ja;
 			default: return null;
 		}
@@ -313,9 +320,11 @@ class _StringsEn {
 	String get startTest => 'Start test';
 	String get noDataYet => 'No data yet';
 	String fastest({required Object count}) => 'Fastest: ${count}s';
+	String highest({required Object count}) => 'Highest: ${count}';
 	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
 	late final _StringsFullscreenEn fullscreen = _StringsFullscreenEn._(_root);
 	late final _StringsNinebuttonsEn ninebuttons = _StringsNinebuttonsEn._(_root);
+	late final _StringsMashbuttonEn mashbutton = _StringsMashbuttonEn._(_root);
 	late final _StringsSpeedEn speed = _StringsSpeedEn._(_root);
 }
 
@@ -340,7 +349,7 @@ class _StringsFullscreenEn {
 	// Translations
 	String get tap => 'Tap!';
 	String get tapToStart => 'Tap to start';
-	String get tapWhenRed => 'Tap when the screen turns red';
+	String get tapWhenRed => 'Wait for red';
 	String score({required Object count}) => 'Time: ${count}s\nTap to back';
 	String get mistake => 'Too fast!\nTap to restart';
 }
@@ -358,6 +367,18 @@ class _StringsNinebuttonsEn {
 	String get failure => 'Failure!';
 }
 
+// Path: mashbutton
+class _StringsMashbuttonEn {
+	_StringsMashbuttonEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get mashbutton => 'Mash Button';
+	String get mashthebutton => 'Mash the red button';
+	String score({required Object count}) => 'Score: ${count}';
+}
+
 // Path: speed
 class _StringsSpeedEn {
 	_StringsSpeedEn._(this._root);
@@ -371,6 +392,101 @@ class _StringsSpeedEn {
 	String get normal => 'Normal';
 	String get slow => 'Slow';
 	String get areyoukiddingme => 'Are you kidding me?';
+}
+
+// Path: <root>
+class _StringsAr implements _StringsEn {
+
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	_StringsAr.build();
+
+	/// Access flat map
+	@override dynamic operator[](String key) => _flatMap[key];
+
+	// Internal flat map initialized lazily
+	@override late final Map<String, dynamic> _flatMap = _buildFlatMap();
+
+	@override late final _StringsAr _root = this; // ignore: unused_field
+
+	// Translations
+	@override String get reactionTime => 'وقت رد الفعل';
+	@override String get speedTest => 'اختبار السرعة';
+	@override String get startTest => 'ابدأ الاختبار';
+	@override String get noDataYet => 'لا توجد بيانات حتى الآن';
+	@override String fastest({required Object count}) => 'الأسرع: ${count} ثانية';
+	@override String highest({required Object count}) => 'الحد الأقصى: ${count}';
+	@override late final _StringsSettingsAr settings = _StringsSettingsAr._(_root);
+	@override late final _StringsFullscreenAr fullscreen = _StringsFullscreenAr._(_root);
+	@override late final _StringsNinebuttonsAr ninebuttons = _StringsNinebuttonsAr._(_root);
+	@override late final _StringsMashbuttonAr mashbutton = _StringsMashbuttonAr._(_root);
+	@override late final _StringsSpeedAr speed = _StringsSpeedAr._(_root);
+}
+
+// Path: settings
+class _StringsSettingsAr implements _StringsSettingsEn {
+	_StringsSettingsAr._(this._root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get settings => 'إعدادات';
+	@override String get clearAllData => 'مسح كافة البيانات';
+	@override String get clearedAllData => 'محو جميع البيانات';
+}
+
+// Path: fullscreen
+class _StringsFullscreenAr implements _StringsFullscreenEn {
+	_StringsFullscreenAr._(this._root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get tap => 'يدفع!';
+	@override String get tapToStart => 'انقر للبدء';
+	@override String get tapWhenRed => 'انتظر الأحمر';
+	@override String score({required Object count}) => 'الوقت: ${count} ثوانٍ\nانقر للرجوع';
+	@override String get mistake => 'سريع جدا!';
+}
+
+// Path: ninebuttons
+class _StringsNinebuttonsAr implements _StringsNinebuttonsEn {
+	_StringsNinebuttonsAr._(this._root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get ninebuttons => '9 أزرار';
+	@override String result({required Object count}) => 'الوقت: ${count} ثواني';
+	@override String get tapred => 'اضغط على الأحمر!';
+	@override String get failure => 'بالفشل!';
+}
+
+// Path: mashbutton
+class _StringsMashbuttonAr implements _StringsMashbuttonEn {
+	_StringsMashbuttonAr._(this._root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get mashbutton => 'اهرسي الزر';
+	@override String get mashthebutton => 'Mash the red button';
+	@override String score({required Object count}) => 'Score: ${count}';
+}
+
+// Path: speed
+class _StringsSpeedAr implements _StringsSpeedEn {
+	_StringsSpeedAr._(this._root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get speed => 'سرعة';
+	@override String get superFast => 'سريع جدا';
+	@override String get fast => 'سريع';
+	@override String get normal => 'طبيعي';
+	@override String get slow => 'بطيء';
+	@override String get areyoukiddingme => 'هل تمزح معي؟';
 }
 
 // Path: <root>
@@ -394,9 +510,11 @@ class _StringsJa implements _StringsEn {
 	@override String get startTest => 'テストスタート';
 	@override String get noDataYet => '記録なし';
 	@override String fastest({required Object count}) => '最速: ${count}秒';
+	@override String highest({required Object count}) => '最高: ${count}';
 	@override late final _StringsSettingsJa settings = _StringsSettingsJa._(_root);
 	@override late final _StringsFullscreenJa fullscreen = _StringsFullscreenJa._(_root);
 	@override late final _StringsNinebuttonsJa ninebuttons = _StringsNinebuttonsJa._(_root);
+	@override late final _StringsMashbuttonJa mashbutton = _StringsMashbuttonJa._(_root);
 	@override late final _StringsSpeedJa speed = _StringsSpeedJa._(_root);
 }
 
@@ -439,6 +557,18 @@ class _StringsNinebuttonsJa implements _StringsNinebuttonsEn {
 	@override String get failure => '失敗！';
 }
 
+// Path: mashbutton
+class _StringsMashbuttonJa implements _StringsMashbuttonEn {
+	_StringsMashbuttonJa._(this._root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get mashbutton => 'ボタン連打';
+	@override String get mashthebutton => 'ボタンを連打しろ!';
+	@override String score({required Object count}) => 'スコア: ${count}回';
+}
+
 // Path: speed
 class _StringsSpeedJa implements _StringsSpeedEn {
 	_StringsSpeedJa._(this._root);
@@ -465,24 +595,62 @@ extension on _StringsEn {
 			'startTest': 'Start test',
 			'noDataYet': 'No data yet',
 			'fastest': ({required Object count}) => 'Fastest: ${count}s',
+			'highest': ({required Object count}) => 'Highest: ${count}',
 			'settings.settings': 'Settings',
 			'settings.clearAllData': 'Clear All Data',
 			'settings.clearedAllData': 'Cleared all data',
 			'fullscreen.tap': 'Tap!',
 			'fullscreen.tapToStart': 'Tap to start',
-			'fullscreen.tapWhenRed': 'Tap when the screen turns red',
+			'fullscreen.tapWhenRed': 'Wait for red',
 			'fullscreen.score': ({required Object count}) => 'Time: ${count}s\nTap to back',
 			'fullscreen.mistake': 'Too fast!\nTap to restart',
 			'ninebuttons.ninebuttons': '9 Buttons',
 			'ninebuttons.result': ({required Object count}) => 'Time: ${count}s',
 			'ninebuttons.tapred': 'Tap Red!',
 			'ninebuttons.failure': 'Failure!',
+			'mashbutton.mashbutton': 'Mash Button',
+			'mashbutton.mashthebutton': 'Mash the red button',
+			'mashbutton.score': ({required Object count}) => 'Score: ${count}',
 			'speed.speed': 'Speed',
 			'speed.superFast': 'Super Fast',
 			'speed.fast': 'Fast',
 			'speed.normal': 'Normal',
 			'speed.slow': 'Slow',
 			'speed.areyoukiddingme': 'Are you kidding me?',
+		};
+	}
+}
+
+extension on _StringsAr {
+	Map<String, dynamic> _buildFlatMap() {
+		return <String, dynamic>{
+			'reactionTime': 'وقت رد الفعل',
+			'speedTest': 'اختبار السرعة',
+			'startTest': 'ابدأ الاختبار',
+			'noDataYet': 'لا توجد بيانات حتى الآن',
+			'fastest': ({required Object count}) => 'الأسرع: ${count} ثانية',
+			'highest': ({required Object count}) => 'الحد الأقصى: ${count}',
+			'settings.settings': 'إعدادات',
+			'settings.clearAllData': 'مسح كافة البيانات',
+			'settings.clearedAllData': 'محو جميع البيانات',
+			'fullscreen.tap': 'يدفع!',
+			'fullscreen.tapToStart': 'انقر للبدء',
+			'fullscreen.tapWhenRed': 'انتظر الأحمر',
+			'fullscreen.score': ({required Object count}) => 'الوقت: ${count} ثوانٍ\nانقر للرجوع',
+			'fullscreen.mistake': 'سريع جدا!',
+			'ninebuttons.ninebuttons': '9 أزرار',
+			'ninebuttons.result': ({required Object count}) => 'الوقت: ${count} ثواني',
+			'ninebuttons.tapred': 'اضغط على الأحمر!',
+			'ninebuttons.failure': 'بالفشل!',
+			'mashbutton.mashbutton': 'اهرسي الزر',
+			'mashbutton.mashthebutton': 'Mash the red button',
+			'mashbutton.score': ({required Object count}) => 'Score: ${count}',
+			'speed.speed': 'سرعة',
+			'speed.superFast': 'سريع جدا',
+			'speed.fast': 'سريع',
+			'speed.normal': 'طبيعي',
+			'speed.slow': 'بطيء',
+			'speed.areyoukiddingme': 'هل تمزح معي؟',
 		};
 	}
 }
@@ -495,6 +663,7 @@ extension on _StringsJa {
 			'startTest': 'テストスタート',
 			'noDataYet': '記録なし',
 			'fastest': ({required Object count}) => '最速: ${count}秒',
+			'highest': ({required Object count}) => '最高: ${count}',
 			'settings.settings': '設定',
 			'settings.clearAllData': 'データを消去',
 			'settings.clearedAllData': 'データを消去しました。',
@@ -507,6 +676,9 @@ extension on _StringsJa {
 			'ninebuttons.result': ({required Object count}) => '時間: ${count}秒',
 			'ninebuttons.tapred': '赤をタップ！',
 			'ninebuttons.failure': '失敗！',
+			'mashbutton.mashbutton': 'ボタン連打',
+			'mashbutton.mashthebutton': 'ボタンを連打しろ!',
+			'mashbutton.score': ({required Object count}) => 'スコア: ${count}回',
 			'speed.speed': 'スピード',
 			'speed.superFast': 'とても速い',
 			'speed.fast': '速い',

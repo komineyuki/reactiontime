@@ -4,6 +4,7 @@
     "startTest": "Start test",
     "noDataYet": "No data yet",
     "fastest": "Fastest: ${count}s",
+    "highest": "Highest: ${count}",
     "settings": {
         "settings": "Settings",
         "clearAllData": "Clear All Data",
@@ -21,6 +22,11 @@
         "result": "Time: ${count}s",
         "tapred": "Tap Red!",
         "failure": "Failure!"
+    },
+    "mashbutton": {
+        "mashbutton": "Mash Button",
+        "mashthebutton": "Mash the red button",
+        "score": "Score: ${count}"
     },
     "speed": {
         "speed": "Speed",

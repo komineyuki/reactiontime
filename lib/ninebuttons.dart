@@ -27,7 +27,9 @@ class _NineButtons extends State<NineButtons> {
           title: Text(t.ninebuttons.ninebuttons),
           backgroundColor: started ? Colors.red : Colors.blue,
         ),
-        body: Column(
+        body: Center(
+            child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             const SizedBox(height: 10),
             Text(
@@ -47,7 +49,7 @@ class _NineButtons extends State<NineButtons> {
             const SizedBox(height: 5),
             Text(bottomText, style: const TextStyle(fontSize: 18)),
           ],
-        ));
+        )));
   }
 
   Stopwatch stpwtc = Stopwatch();

@@ -4,6 +4,7 @@
     "startTest": "テストスタート",
     "noDataYet": "記録なし",
     "fastest": "最速: ${count}秒",
+    "highest": "最高: ${count}",
     "settings": {
         "settings": "設定",
         "clearAllData": "データを消去",
@@ -21,6 +22,11 @@
         "result": "時間: ${count}秒",
         "tapred": "赤をタップ！",
         "failure": "失敗！"
+    },
+    "mashbutton": {
+        "mashbutton": "ボタン連打",
+        "mashthebutton": "ボタンを連打しろ!",
+        "score": "スコア: ${count}回"
     },
     "speed": {
         "speed": "スピード",

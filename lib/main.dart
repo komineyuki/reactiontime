@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:reactiontime/mashbutton.dart';
 import 'package:reactiontime/ninebuttons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -13,25 +14,20 @@ import 'settings.dart';
 class MainModel extends ChangeNotifier {
   MainModel() {
     initBannerAd();
+    AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
+    WidgetsBinding.instance
+        .addObserver(AppLifecycleReactor(appOpenAdManager: appOpenAdManager));
   }
 
   double? fastestFullscreen;
   double? fastest9buttons;
-
-  void setFastestFullscreen(double d) {
-    fastestFullscreen = d;
-    notifyListeners();
-  }
-
-  void setFastestNineBUttons(double d) {
-    fastest9buttons = d;
-    notifyListeners();
-  }
+  int? highestMashButton;
 
   void getHighscore() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       fastestFullscreen = prefs.getDouble("fullscreen_fastest");
       fastest9buttons = prefs.getDouble("ninebuttons_fastest");
+      highestMashButton = prefs.getInt("mashbutton_highest");
       notifyListeners();
     });
   }
@@ -70,6 +66,7 @@ void main() async {
   LocaleSettings.useDeviceLocale();
   prefs = await SharedPreferences.getInstance();
   MobileAds.instance.initialize();
+
   runApp(MultiProvider(providers: [
     ListenableProvider(create: (context) => MainModel()),
   ], child: const MyApp()));
@@ -97,6 +94,7 @@ class Main extends StatelessWidget {
     context.read<MainModel>().getHighscore();
     double? fastestFullscreen = context.watch<MainModel>().fastestFullscreen;
     double? fastest9buttons = context.watch<MainModel>().fastest9buttons;
+    int? highestMashButton = context.watch<MainModel>().highestMashButton;
 
     BannerAd? ba = context.read<MainModel>().loadBannerAd();
 
@@ -140,6 +138,12 @@ class Main extends StatelessWidget {
                   highscore: fastest9buttons != null
                       ? t.fastest(count: fastest9buttons.toString())
                       : t.noDataYet),
+              startButton(context, MashButton(),
+                  imageName: "mashbutton",
+                  bottomText: "Mash Button",
+                  highscore: highestMashButton != null
+                      ? t.highest(count: highestMashButton)
+                      : t.noDataYet)
             ],
           ))),
           ba != null
@@ -180,4 +184,82 @@ Widget startButton(BuildContext context, Widget page,
 
 bool darkmodeDisabled(BuildContext context) {
   return MediaQuery.of(context).platformBrightness != Brightness.dark;
+}
+
+class AppOpenAdManager {
+  String adUnitId = Platform.isAndroid
+      ? 'ca-app-pub-6224025297466109/7432060742'
+      : 'ca-app-pub-6224025297466109/7069346087';
+
+  AppOpenAd? _appOpenAd;
+  bool _isShowingAd = false;
+
+  void loadAd() {
+    AppOpenAd.load(
+      adUnitId: adUnitId,
+      orientation: AppOpenAd.orientationPortrait,
+      request: AdRequest(),
+      adLoadCallback: AppOpenAdLoadCallback(
+        onAdLoaded: (ad) {
+          _appOpenAd = ad;
+        },
+        onAdFailedToLoad: (error) {
+          print('AppOpenAd failed to load: $error');
+          // Handle the error.
+        },
+      ),
+    );
+  }
+
+  /// Whether an ad is available to be shown.
+  bool get isAdAvailable {
+    return _appOpenAd != null;
+  }
+
+  void showAdIfAvailable() {
+    if (!isAdAvailable) {
+      print('Tried to show ad before available.');
+      loadAd();
+      return;
+    }
+    if (_isShowingAd) {
+      print('Tried to show ad while already showing an ad.');
+      return;
+    }
+    // Set the fullScreenContentCallback and show the ad.
+    _appOpenAd!.fullScreenContentCallback = FullScreenContentCallback(
+      onAdShowedFullScreenContent: (ad) {
+        _isShowingAd = true;
+        print('$ad onAdShowedFullScreenContent');
+      },
+      onAdFailedToShowFullScreenContent: (ad, error) {
+        print('$ad onAdFailedToShowFullScreenContent: $error');
+        _isShowingAd = false;
+        ad.dispose();
+        _appOpenAd = null;
+      },
+      onAdDismissedFullScreenContent: (ad) {
+        print('$ad onAdDismissedFullScreenContent');
+        _isShowingAd = false;
+        ad.dispose();
+        _appOpenAd = null;
+        loadAd();
+      },
+    );
+  }
+}
+
+class AppLifecycleReactor extends WidgetsBindingObserver {
+  final AppOpenAdManager appOpenAdManager;
+
+  AppLifecycleReactor({required this.appOpenAdManager});
+
+  @override
+  Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
+    // Try to show an app open ad if the app is being resumed and
+    // we're not already showing an app open ad.
+    if (state == AppLifecycleState.resumed) {
+      appOpenAdManager.showAdIfAvailable();
+    }
+  }
 }

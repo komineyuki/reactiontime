@@ -4,6 +4,7 @@
     "startTest": "ابدأ الاختبار",
     "noDataYet": "لا توجد بيانات حتى الآن",
     "fastest": "الأسرع: ${count} ثانية",
+    "highest": "الحد الأقصى: ${count}",
     "settings": {
         "settings": "إعدادات",
         "clearAllData": "مسح كافة البيانات",
@@ -21,6 +22,11 @@
         "result": "الوقت: ${count} ثواني",
         "tapred": "اضغط على الأحمر!",
         "failure": "بالفشل!"
+    },
+    "mashbutton": {
+        "mashbutton": "اهرسي الزر",
+        "mashthebutton": "Mash the red button",
+        "score": "Score: ${count}"
     },
     "speed": {
         "speed": "سرعة",
