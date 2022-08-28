@@ -1,15 +1,23 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:reactiontime/ninebuttons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'fullscreen.dart';
 import 'i18n/strings.g.dart';
 import 'settings.dart';
 
 class MainModel extends ChangeNotifier {
+  MainModel() {
+    initBannerAd();
+  }
+
   double? fastestFullscreen;
   double? fastest9buttons;
+
   void setFastestFullscreen(double d) {
     fastestFullscreen = d;
     notifyListeners();
@@ -27,6 +35,32 @@ class MainModel extends ChangeNotifier {
       notifyListeners();
     });
   }
+
+  BannerAd? banner;
+
+  void initBannerAd() {
+    print("Ads: initBannerAd");
+
+    banner = BannerAd(
+        size: AdSize.banner,
+        adUnitId: _getBannerId,
+        listener: const BannerAdListener(),
+        request: const AdRequest());
+  }
+
+  BannerAd? loadBannerAd() {
+    print("Ads: loadBannerAd");
+    banner?.load();
+    return banner;
+  }
+}
+
+String get _getBannerId {
+  if (Platform.isIOS) {
+    return "ca-app-pub-6224025297466109/8452911645";
+  } else {
+    return "ca-app-pub-6224025297466109/1952541349";
+  }
 }
 
 late SharedPreferences prefs;
@@ -35,6 +69,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   LocaleSettings.useDeviceLocale();
   prefs = await SharedPreferences.getInstance();
+  MobileAds.instance.initialize();
   runApp(MultiProvider(providers: [
     ListenableProvider(create: (context) => MainModel()),
   ], child: const MyApp()));
@@ -63,13 +98,15 @@ class Main extends StatelessWidget {
     double? fastestFullscreen = context.watch<MainModel>().fastestFullscreen;
     double? fastest9buttons = context.watch<MainModel>().fastest9buttons;
 
+    BannerAd? ba = context.read<MainModel>().loadBannerAd();
+
     return Scaffold(
         appBar: AppBar(
           backgroundColor:
               darkmodeDisabled(context) ? Colors.grey : Colors.black,
           title: Text(
             t.reactionTime,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           ),
           actions: [
             IconButton(
@@ -82,27 +119,36 @@ class Main extends StatelessWidget {
             const SizedBox(width: 10)
           ],
         ),
-        body: Center(
-            child: GridView.count(
-          crossAxisCount: 2,
-          padding: EdgeInsets.all(10.0),
-          mainAxisSpacing: 10,
-          crossAxisSpacing: 10,
-          children: [
-            startButton(context, FullScreen(),
-                imageName: "fullscreen",
-                bottomText: "Fullscreen",
-                highscore: fastestFullscreen != null
-                    ? t.fastest(count: fastestFullscreen.toString())
-                    : t.noDataYet),
-            startButton(context, NineButtons(),
-                imageName: "ninebuttons",
-                bottomText: "9 Buttons",
-                highscore: fastest9buttons != null
-                    ? t.fastest(count: fastest9buttons.toString())
-                    : t.noDataYet),
-          ],
-        )));
+        body: Column(children: [
+          Expanded(
+              child: Center(
+                  child: GridView.count(
+            crossAxisCount: 2,
+            padding: EdgeInsets.all(10.0),
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            children: [
+              startButton(context, FullScreen(),
+                  imageName: "fullscreen",
+                  bottomText: "Fullscreen",
+                  highscore: fastestFullscreen != null
+                      ? t.fastest(count: fastestFullscreen.toString())
+                      : t.noDataYet),
+              startButton(context, NineButtons(),
+                  imageName: "ninebuttons",
+                  bottomText: "9 Buttons",
+                  highscore: fastest9buttons != null
+                      ? t.fastest(count: fastest9buttons.toString())
+                      : t.noDataYet),
+            ],
+          ))),
+          ba != null
+              ? SizedBox(
+                  height: ba.size.height.toDouble(),
+                  width: ba.size.width.toDouble(),
+                  child: AdWidget(ad: ba))
+              : const SizedBox(),
+        ]));
   }
 }
 
