@@ -10,6 +10,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'fullscreen.dart';
 import 'i18n/strings.g.dart';
 import 'settings.dart';
+import 'adinterstitial.dart';
 
 class MainModel extends ChangeNotifier {
   MainModel() {
@@ -65,7 +66,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   LocaleSettings.useDeviceLocale();
   prefs = await SharedPreferences.getInstance();
-  MobileAds.instance.initialize();
+  MobileAds.instance.initialize().then((value) => AdInterstitial().createAd());
 
   runApp(MultiProvider(providers: [
     ListenableProvider(create: (context) => MainModel()),
