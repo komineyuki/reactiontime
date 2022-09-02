@@ -15,9 +15,6 @@ import 'adinterstitial.dart';
 class MainModel extends ChangeNotifier {
   MainModel() {
     initBannerAd();
-    AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
-    WidgetsBinding.instance
-        .addObserver(AppLifecycleReactor(appOpenAdManager: appOpenAdManager));
   }
 
   double? fastestFullscreen;
@@ -129,19 +126,19 @@ class Main extends StatelessWidget {
             children: [
               startButton(context, FullScreen(),
                   imageName: "fullscreen",
-                  bottomText: "Fullscreen",
+                  bottomText: t.fullscreen.fullscreen,
                   highscore: fastestFullscreen != null
                       ? t.fastest(count: fastestFullscreen.toString())
                       : t.noDataYet),
               startButton(context, NineButtons(),
                   imageName: "ninebuttons",
-                  bottomText: "9 Buttons",
+                  bottomText: t.ninebuttons.ninebuttons,
                   highscore: fastest9buttons != null
                       ? t.fastest(count: fastest9buttons.toString())
                       : t.noDataYet),
               startButton(context, MashButton(),
                   imageName: "mashbutton",
-                  bottomText: "Mash Button",
+                  bottomText: t.mashbutton.mashbutton,
                   highscore: highestMashButton != null
                       ? t.highest(count: highestMashButton)
                       : t.noDataYet)
@@ -247,20 +244,5 @@ class AppOpenAdManager {
         loadAd();
       },
     );
-  }
-}
-
-class AppLifecycleReactor extends WidgetsBindingObserver {
-  final AppOpenAdManager appOpenAdManager;
-
-  AppLifecycleReactor({required this.appOpenAdManager});
-
-  @override
-  Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
-    // Try to show an app open ad if the app is being resumed and
-    // we're not already showing an app open ad.
-    if (state == AppLifecycleState.resumed) {
-      appOpenAdManager.showAdIfAvailable();
-    }
   }
 }

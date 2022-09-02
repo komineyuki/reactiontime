@@ -11,6 +11,7 @@
         "clearedAllData": "Cleared all data"
     },
     "fullscreen": {
+        "fullscreen": "Fullscreen",
         "tap": "Tap!",
         "tapToStart": "Tap to start",
         "tapWhenRed": "Wait for red",

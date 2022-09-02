@@ -1,0 +1,40 @@
+{
+    "reactionTime": "Reaktionstid",
+    "speedTest": "Hastighetstest",
+    "startTest": "Starta testet",
+    "noDataYet": "Inga uppgifter ännu",
+    "fastest": "Snabbast: ${count}s",
+    "highest": "Högsta: ${count}",
+    "settings": {
+        "settings": "Inställningar",
+        "clearAllData": "Rensa alla data",
+        "clearedAllData": "Rensade alla uppgifter."
+    },
+    "fullscreen": {
+        "fullscreen": "Fullskärm",
+        "tap": "Tryck!",
+        "tapToStart": "Tryck på för att starta",
+        "tapWhenRed": "Vänta på rött",
+        "score": "Tid: ${count}s\nTryck på för att backa",
+        "mistake": "För snabbt!\nTryck på för att starta om"
+    },
+    "ninebuttons": {
+        "ninebuttons": "9 knappar",
+        "result": "Tid: ${count}s",
+        "tapred": "Tryck på Red!",
+        "failure": "Misslyckande!"
+    },
+    "mashbutton": {
+        "mashbutton": "Mash-knapp",
+        "mashthebutton": "Tryck på den röda knappen",
+        "score": "Poäng: ${count}"
+    },
+    "speed": {
+        "speed": "Hastighet",
+        "superFast": "Supersnabbt",
+        "fast": "Snabbt",
+        "normal": "Normal",
+        "slow": "Långsam",
+        "areyoukiddingme": "Skojar du med mig?"
+    }
+}

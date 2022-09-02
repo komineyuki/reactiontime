@@ -1,0 +1,40 @@
+{
+    "reactionTime": "Reactietijd",
+    "speedTest": "Snelheidstest",
+    "startTest": "Start test",
+    "noDataYet": "Nog geen gegevens",
+    "fastest": "Snelste: ${count}s",
+    "highest": "Hoogste: ${count}",
+    "settings": {
+        "settings": "Instellingen",
+        "clearAllData": "Wis alle gegevens",
+        "clearedAllData": "Alle gegevens gewist."
+    },
+    "fullscreen": {
+        "fullscreen": "Volledig scherm",
+        "tap": "Tik!",
+        "tapToStart": "Tik om te beginnen",
+        "tapWhenRed": "Wacht op rood",
+        "score": "Tijd: ${count}s\nTik op terug",
+        "mistake": "Te snel!\nTik om opnieuw te starten"
+    },
+    "ninebuttons": {
+        "ninebuttons": "9 Knoppen",
+        "result": "Tijd: ${count}s",
+        "tapred": "Tik rood!",
+        "failure": "Mislukking!"
+    },
+    "mashbutton": {
+        "mashbutton": "Mash knop",
+        "mashthebutton": "Druk op de rode knop.",
+        "score": "Score: ${count}"
+    },
+    "speed": {
+        "speed": "Snelheid",
+        "superFast": "Super Snel",
+        "fast": "Snel",
+        "normal": "Normaal",
+        "slow": "Langzaam",
+        "areyoukiddingme": "Neem je me in de maling?"
+    }
+}
