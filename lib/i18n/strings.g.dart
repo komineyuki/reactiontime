@@ -2,10 +2,10 @@
 /*
  * Generated file. Do not edit.
  *
- * Locales: 5
- * Strings: 140 (28.0 per locale)
+ * Locales: 7
+ * Strings: 217 (31.0 per locale)
  *
- * Built on 2022-09-02 at 10:38 UTC
+ * Built on 2022-09-03 at 05:21 UTC
  */
 
 import 'package:flutter/widgets.dart';
@@ -22,8 +22,10 @@ AppLocale _currLocale = _baseLocale;
 enum AppLocale {
 	en, // 'en' (base locale, fallback)
 	ar, // 'ar'
+	de, // 'de'
 	ja, // 'ja'
 	nl, // 'nl'
+	no, // 'no'
 	sv, // 'sv'
 }
 
@@ -152,8 +154,10 @@ class AppLocaleUtils {
 
 late _StringsEn _translationsEn = _StringsEn.build();
 late _StringsAr _translationsAr = _StringsAr.build();
+late _StringsDe _translationsDe = _StringsDe.build();
 late _StringsJa _translationsJa = _StringsJa.build();
 late _StringsNl _translationsNl = _StringsNl.build();
+late _StringsNo _translationsNo = _StringsNo.build();
 late _StringsSv _translationsSv = _StringsSv.build();
 
 // extensions for AppLocale
@@ -167,8 +171,10 @@ extension AppLocaleExtensions on AppLocale {
 		switch (this) {
 			case AppLocale.en: return _translationsEn;
 			case AppLocale.ar: return _translationsAr;
+			case AppLocale.de: return _translationsDe;
 			case AppLocale.ja: return _translationsJa;
 			case AppLocale.nl: return _translationsNl;
+			case AppLocale.no: return _translationsNo;
 			case AppLocale.sv: return _translationsSv;
 		}
 	}
@@ -184,8 +190,10 @@ extension AppLocaleExtensions on AppLocale {
 		switch (this) {
 			case AppLocale.en: return _StringsEn.build();
 			case AppLocale.ar: return _StringsAr.build();
+			case AppLocale.de: return _StringsDe.build();
 			case AppLocale.ja: return _StringsJa.build();
 			case AppLocale.nl: return _StringsNl.build();
+			case AppLocale.no: return _StringsNo.build();
 			case AppLocale.sv: return _StringsSv.build();
 		}
 	}
@@ -194,8 +202,10 @@ extension AppLocaleExtensions on AppLocale {
 		switch (this) {
 			case AppLocale.en: return 'en';
 			case AppLocale.ar: return 'ar';
+			case AppLocale.de: return 'de';
 			case AppLocale.ja: return 'ja';
 			case AppLocale.nl: return 'nl';
+			case AppLocale.no: return 'no';
 			case AppLocale.sv: return 'sv';
 		}
 	}
@@ -204,8 +214,10 @@ extension AppLocaleExtensions on AppLocale {
 		switch (this) {
 			case AppLocale.en: return const Locale.fromSubtags(languageCode: 'en');
 			case AppLocale.ar: return const Locale.fromSubtags(languageCode: 'ar');
+			case AppLocale.de: return const Locale.fromSubtags(languageCode: 'de');
 			case AppLocale.ja: return const Locale.fromSubtags(languageCode: 'ja');
 			case AppLocale.nl: return const Locale.fromSubtags(languageCode: 'nl');
+			case AppLocale.no: return const Locale.fromSubtags(languageCode: 'no');
 			case AppLocale.sv: return const Locale.fromSubtags(languageCode: 'sv');
 		}
 	}
@@ -216,8 +228,10 @@ extension StringAppLocaleExtensions on String {
 		switch (this) {
 			case 'en': return AppLocale.en;
 			case 'ar': return AppLocale.ar;
+			case 'de': return AppLocale.de;
 			case 'ja': return AppLocale.ja;
 			case 'nl': return AppLocale.nl;
+			case 'no': return AppLocale.no;
 			case 'sv': return AppLocale.sv;
 			default: return null;
 		}
@@ -329,6 +343,9 @@ class _StringsEn {
 	late final _StringsEn _root = this; // ignore: unused_field
 
 	// Translations
+	String get language => 'English';
+	String get languageEn => 'English';
+	String get languageJa => '英語';
 	String get reactionTime => 'Reaction Time';
 	String get speedTest => 'Speed Test';
 	String get startTest => 'Start test';
@@ -425,6 +442,9 @@ class _StringsAr implements _StringsEn {
 	@override late final _StringsAr _root = this; // ignore: unused_field
 
 	// Translations
+	@override String get language => 'عربي';
+	@override String get languageEn => 'Arabic';
+	@override String get languageJa => 'アラビア語';
 	@override String get reactionTime => 'وقت رد الفعل';
 	@override String get speedTest => 'اختبار السرعة';
 	@override String get startTest => 'ابدأ الاختبار';
@@ -506,6 +526,105 @@ class _StringsSpeedAr implements _StringsSpeedEn {
 }
 
 // Path: <root>
+class _StringsDe implements _StringsEn {
+
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	_StringsDe.build();
+
+	/// Access flat map
+	@override dynamic operator[](String key) => _flatMap[key];
+
+	// Internal flat map initialized lazily
+	@override late final Map<String, dynamic> _flatMap = _buildFlatMap();
+
+	@override late final _StringsDe _root = this; // ignore: unused_field
+
+	// Translations
+	@override String get language => 'Deutsch';
+	@override String get languageEn => 'German';
+	@override String get languageJa => 'ドイツ語';
+	@override String get reactionTime => 'Reaction Time';
+	@override String get speedTest => 'Speed Test';
+	@override String get startTest => 'Start test';
+	@override String get noDataYet => 'No data yet';
+	@override String fastest({required Object count}) => 'Fastest: ${count}s';
+	@override String highest({required Object count}) => 'Highest: ${count}';
+	@override late final _StringsSettingsDe settings = _StringsSettingsDe._(_root);
+	@override late final _StringsFullscreenDe fullscreen = _StringsFullscreenDe._(_root);
+	@override late final _StringsNinebuttonsDe ninebuttons = _StringsNinebuttonsDe._(_root);
+	@override late final _StringsMashbuttonDe mashbutton = _StringsMashbuttonDe._(_root);
+	@override late final _StringsSpeedDe speed = _StringsSpeedDe._(_root);
+}
+
+// Path: settings
+class _StringsSettingsDe implements _StringsSettingsEn {
+	_StringsSettingsDe._(this._root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get settings => 'Settings';
+	@override String get clearAllData => 'Clear All Data';
+	@override String get clearedAllData => 'Cleared all data';
+}
+
+// Path: fullscreen
+class _StringsFullscreenDe implements _StringsFullscreenEn {
+	_StringsFullscreenDe._(this._root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get fullscreen => 'Fullscreen';
+	@override String get tap => 'Tap!';
+	@override String get tapToStart => 'Tap to start';
+	@override String get tapWhenRed => 'Wait for red';
+	@override String score({required Object count}) => 'Time: ${count}s\nTap to back';
+	@override String get mistake => 'Too fast!\nTap to restart';
+}
+
+// Path: ninebuttons
+class _StringsNinebuttonsDe implements _StringsNinebuttonsEn {
+	_StringsNinebuttonsDe._(this._root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get ninebuttons => '9 Buttons';
+	@override String result({required Object count}) => 'Time: ${count}s';
+	@override String get tapred => 'Tap Red!';
+	@override String get failure => 'Failure!';
+}
+
+// Path: mashbutton
+class _StringsMashbuttonDe implements _StringsMashbuttonEn {
+	_StringsMashbuttonDe._(this._root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get mashbutton => 'Mash Button';
+	@override String get mashthebutton => 'Mash the red button';
+	@override String score({required Object count}) => 'Score: ${count}';
+}
+
+// Path: speed
+class _StringsSpeedDe implements _StringsSpeedEn {
+	_StringsSpeedDe._(this._root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get speed => 'Speed';
+	@override String get superFast => 'Super Fast';
+	@override String get fast => 'Fast';
+	@override String get normal => 'Normal';
+	@override String get slow => 'Slow';
+	@override String get areyoukiddingme => 'Are you kidding me?';
+}
+
+// Path: <root>
 class _StringsJa implements _StringsEn {
 
 	/// You can call this constructor and build your own translation instance of this locale.
@@ -521,6 +640,9 @@ class _StringsJa implements _StringsEn {
 	@override late final _StringsJa _root = this; // ignore: unused_field
 
 	// Translations
+	@override String get language => '日本語';
+	@override String get languageEn => 'Japanese';
+	@override String get languageJa => '日本語';
 	@override String get reactionTime => '反応速度テスト';
 	@override String get speedTest => '反応速度テスト';
 	@override String get startTest => 'テストスタート';
@@ -617,6 +739,9 @@ class _StringsNl implements _StringsEn {
 	@override late final _StringsNl _root = this; // ignore: unused_field
 
 	// Translations
+	@override String get language => 'Nederlands';
+	@override String get languageEn => 'Dutch';
+	@override String get languageJa => 'オランダ語';
 	@override String get reactionTime => 'Reactietijd';
 	@override String get speedTest => 'Snelheidstest';
 	@override String get startTest => 'Start test';
@@ -698,6 +823,105 @@ class _StringsSpeedNl implements _StringsSpeedEn {
 }
 
 // Path: <root>
+class _StringsNo implements _StringsEn {
+
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	_StringsNo.build();
+
+	/// Access flat map
+	@override dynamic operator[](String key) => _flatMap[key];
+
+	// Internal flat map initialized lazily
+	@override late final Map<String, dynamic> _flatMap = _buildFlatMap();
+
+	@override late final _StringsNo _root = this; // ignore: unused_field
+
+	// Translations
+	@override String get language => 'Noors';
+	@override String get languageEn => 'Norwegian';
+	@override String get languageJa => 'ノルウェー語';
+	@override String get reactionTime => 'Reaksjonstid';
+	@override String get speedTest => 'Fartstest';
+	@override String get startTest => 'Start testen';
+	@override String get noDataYet => 'Ingen data ennå';
+	@override String fastest({required Object count}) => 'Raskest: ${count}s';
+	@override String highest({required Object count}) => 'Høyest: ${count}';
+	@override late final _StringsSettingsNo settings = _StringsSettingsNo._(_root);
+	@override late final _StringsFullscreenNo fullscreen = _StringsFullscreenNo._(_root);
+	@override late final _StringsNinebuttonsNo ninebuttons = _StringsNinebuttonsNo._(_root);
+	@override late final _StringsMashbuttonNo mashbutton = _StringsMashbuttonNo._(_root);
+	@override late final _StringsSpeedNo speed = _StringsSpeedNo._(_root);
+}
+
+// Path: settings
+class _StringsSettingsNo implements _StringsSettingsEn {
+	_StringsSettingsNo._(this._root);
+
+	@override final _StringsNo _root; // ignore: unused_field
+
+	// Translations
+	@override String get settings => 'Innstillinger';
+	@override String get clearAllData => 'Fjern alle data';
+	@override String get clearedAllData => 'Fjernet alle data';
+}
+
+// Path: fullscreen
+class _StringsFullscreenNo implements _StringsFullscreenEn {
+	_StringsFullscreenNo._(this._root);
+
+	@override final _StringsNo _root; // ignore: unused_field
+
+	// Translations
+	@override String get fullscreen => 'Full skjerm';
+	@override String get tap => 'Trykk!';
+	@override String get tapToStart => 'Trykk for å starte';
+	@override String get tapWhenRed => 'Vent på rødt';
+	@override String score({required Object count}) => 'Tid: ${count}s\nTrykk for å gå tilbake';
+	@override String get mistake => 'For fort!\nTrykk for å starte på nytt';
+}
+
+// Path: ninebuttons
+class _StringsNinebuttonsNo implements _StringsNinebuttonsEn {
+	_StringsNinebuttonsNo._(this._root);
+
+	@override final _StringsNo _root; // ignore: unused_field
+
+	// Translations
+	@override String get ninebuttons => '9 knapper';
+	@override String result({required Object count}) => 'Tid: ${count}s';
+	@override String get tapred => 'Trykk rødt!';
+	@override String get failure => 'Mislykket!';
+}
+
+// Path: mashbutton
+class _StringsMashbuttonNo implements _StringsMashbuttonEn {
+	_StringsMashbuttonNo._(this._root);
+
+	@override final _StringsNo _root; // ignore: unused_field
+
+	// Translations
+	@override String get mashbutton => 'Mash-knapp';
+	@override String get mashthebutton => 'Mos den røde knappen';
+	@override String score({required Object count}) => 'Score: ${count}';
+}
+
+// Path: speed
+class _StringsSpeedNo implements _StringsSpeedEn {
+	_StringsSpeedNo._(this._root);
+
+	@override final _StringsNo _root; // ignore: unused_field
+
+	// Translations
+	@override String get speed => 'Hastighet';
+	@override String get superFast => 'Superrask';
+	@override String get fast => 'Rask';
+	@override String get normal => 'Vanlig';
+	@override String get slow => 'Langsom';
+	@override String get areyoukiddingme => 'Tuller du med meg?';
+}
+
+// Path: <root>
 class _StringsSv implements _StringsEn {
 
 	/// You can call this constructor and build your own translation instance of this locale.
@@ -713,6 +937,9 @@ class _StringsSv implements _StringsEn {
 	@override late final _StringsSv _root = this; // ignore: unused_field
 
 	// Translations
+	@override String get language => 'Swedish';
+	@override String get languageEn => 'svenska';
+	@override String get languageJa => 'スウェーデン語';
 	@override String get reactionTime => 'Reaktionstid';
 	@override String get speedTest => 'Hastighetstest';
 	@override String get startTest => 'Starta testet';
@@ -799,6 +1026,9 @@ class _StringsSpeedSv implements _StringsSpeedEn {
 extension on _StringsEn {
 	Map<String, dynamic> _buildFlatMap() {
 		return <String, dynamic>{
+			'language': 'English',
+			'languageEn': 'English',
+			'languageJa': '英語',
 			'reactionTime': 'Reaction Time',
 			'speedTest': 'Speed Test',
 			'startTest': 'Start test',
@@ -834,6 +1064,9 @@ extension on _StringsEn {
 extension on _StringsAr {
 	Map<String, dynamic> _buildFlatMap() {
 		return <String, dynamic>{
+			'language': 'عربي',
+			'languageEn': 'Arabic',
+			'languageJa': 'アラビア語',
 			'reactionTime': 'وقت رد الفعل',
 			'speedTest': 'اختبار السرعة',
 			'startTest': 'ابدأ الاختبار',
@@ -866,9 +1099,50 @@ extension on _StringsAr {
 	}
 }
 
+extension on _StringsDe {
+	Map<String, dynamic> _buildFlatMap() {
+		return <String, dynamic>{
+			'language': 'Deutsch',
+			'languageEn': 'German',
+			'languageJa': 'ドイツ語',
+			'reactionTime': 'Reaction Time',
+			'speedTest': 'Speed Test',
+			'startTest': 'Start test',
+			'noDataYet': 'No data yet',
+			'fastest': ({required Object count}) => 'Fastest: ${count}s',
+			'highest': ({required Object count}) => 'Highest: ${count}',
+			'settings.settings': 'Settings',
+			'settings.clearAllData': 'Clear All Data',
+			'settings.clearedAllData': 'Cleared all data',
+			'fullscreen.fullscreen': 'Fullscreen',
+			'fullscreen.tap': 'Tap!',
+			'fullscreen.tapToStart': 'Tap to start',
+			'fullscreen.tapWhenRed': 'Wait for red',
+			'fullscreen.score': ({required Object count}) => 'Time: ${count}s\nTap to back',
+			'fullscreen.mistake': 'Too fast!\nTap to restart',
+			'ninebuttons.ninebuttons': '9 Buttons',
+			'ninebuttons.result': ({required Object count}) => 'Time: ${count}s',
+			'ninebuttons.tapred': 'Tap Red!',
+			'ninebuttons.failure': 'Failure!',
+			'mashbutton.mashbutton': 'Mash Button',
+			'mashbutton.mashthebutton': 'Mash the red button',
+			'mashbutton.score': ({required Object count}) => 'Score: ${count}',
+			'speed.speed': 'Speed',
+			'speed.superFast': 'Super Fast',
+			'speed.fast': 'Fast',
+			'speed.normal': 'Normal',
+			'speed.slow': 'Slow',
+			'speed.areyoukiddingme': 'Are you kidding me?',
+		};
+	}
+}
+
 extension on _StringsJa {
 	Map<String, dynamic> _buildFlatMap() {
 		return <String, dynamic>{
+			'language': '日本語',
+			'languageEn': 'Japanese',
+			'languageJa': '日本語',
 			'reactionTime': '反応速度テスト',
 			'speedTest': '反応速度テスト',
 			'startTest': 'テストスタート',
@@ -904,6 +1178,9 @@ extension on _StringsJa {
 extension on _StringsNl {
 	Map<String, dynamic> _buildFlatMap() {
 		return <String, dynamic>{
+			'language': 'Nederlands',
+			'languageEn': 'Dutch',
+			'languageJa': 'オランダ語',
 			'reactionTime': 'Reactietijd',
 			'speedTest': 'Snelheidstest',
 			'startTest': 'Start test',
@@ -936,9 +1213,50 @@ extension on _StringsNl {
 	}
 }
 
+extension on _StringsNo {
+	Map<String, dynamic> _buildFlatMap() {
+		return <String, dynamic>{
+			'language': 'Noors',
+			'languageEn': 'Norwegian',
+			'languageJa': 'ノルウェー語',
+			'reactionTime': 'Reaksjonstid',
+			'speedTest': 'Fartstest',
+			'startTest': 'Start testen',
+			'noDataYet': 'Ingen data ennå',
+			'fastest': ({required Object count}) => 'Raskest: ${count}s',
+			'highest': ({required Object count}) => 'Høyest: ${count}',
+			'settings.settings': 'Innstillinger',
+			'settings.clearAllData': 'Fjern alle data',
+			'settings.clearedAllData': 'Fjernet alle data',
+			'fullscreen.fullscreen': 'Full skjerm',
+			'fullscreen.tap': 'Trykk!',
+			'fullscreen.tapToStart': 'Trykk for å starte',
+			'fullscreen.tapWhenRed': 'Vent på rødt',
+			'fullscreen.score': ({required Object count}) => 'Tid: ${count}s\nTrykk for å gå tilbake',
+			'fullscreen.mistake': 'For fort!\nTrykk for å starte på nytt',
+			'ninebuttons.ninebuttons': '9 knapper',
+			'ninebuttons.result': ({required Object count}) => 'Tid: ${count}s',
+			'ninebuttons.tapred': 'Trykk rødt!',
+			'ninebuttons.failure': 'Mislykket!',
+			'mashbutton.mashbutton': 'Mash-knapp',
+			'mashbutton.mashthebutton': 'Mos den røde knappen',
+			'mashbutton.score': ({required Object count}) => 'Score: ${count}',
+			'speed.speed': 'Hastighet',
+			'speed.superFast': 'Superrask',
+			'speed.fast': 'Rask',
+			'speed.normal': 'Vanlig',
+			'speed.slow': 'Langsom',
+			'speed.areyoukiddingme': 'Tuller du med meg?',
+		};
+	}
+}
+
 extension on _StringsSv {
 	Map<String, dynamic> _buildFlatMap() {
 		return <String, dynamic>{
+			'language': 'Swedish',
+			'languageEn': 'svenska',
+			'languageJa': 'スウェーデン語',
 			'reactionTime': 'Reaktionstid',
 			'speedTest': 'Hastighetstest',
 			'startTest': 'Starta testet',

@@ -61,8 +61,12 @@ late SharedPreferences prefs;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  LocaleSettings.useDeviceLocale();
+
   prefs = await SharedPreferences.getInstance();
+
+  prefs.getString("lan") == null
+      ? LocaleSettings.useDeviceLocale()
+      : LocaleSettings.setLocaleRaw(prefs.getString("lan")!);
   MobileAds.instance.initialize().then((value) => AdInterstitial().createAd());
 
   runApp(MultiProvider(providers: [

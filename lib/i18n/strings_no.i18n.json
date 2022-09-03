@@ -1,0 +1,43 @@
+{
+    "language": "Noors",
+    "languageEn": "Norwegian",
+    "languageJa": "ノルウェー語",
+    "reactionTime": "Reaksjonstid",
+    "speedTest": "Fartstest",
+    "startTest": "Start testen",
+    "noDataYet": "Ingen data ennå",
+    "fastest": "Raskest: ${count}s",
+    "highest": "Høyest: ${count}",
+    "settings": {
+        "settings": "Innstillinger",
+        "clearAllData": "Fjern alle data",
+        "clearedAllData": "Fjernet alle data"
+    },
+    "fullscreen": {
+        "fullscreen": "Full skjerm",
+        "tap": "Trykk!",
+        "tapToStart": "Trykk for å starte",
+        "tapWhenRed": "Vent på rødt",
+        "score": "Tid: ${count}s\nTrykk for å gå tilbake",
+        "mistake": "For fort!\nTrykk for å starte på nytt"
+    },
+    "ninebuttons": {
+        "ninebuttons": "9 knapper",
+        "result": "Tid: ${count}s",
+        "tapred": "Trykk rødt!",
+        "failure": "Mislykket!"
+    },
+    "mashbutton": {
+        "mashbutton": "Mash-knapp",
+        "mashthebutton": "Mos den røde knappen",
+        "score": "Score: ${count}"
+    },
+    "speed": {
+        "speed": "Hastighet",
+        "superFast": "Superrask",
+        "fast": "Rask",
+        "normal": "Vanlig",
+        "slow": "Langsom",
+        "areyoukiddingme": "Tuller du med meg?"
+    }
+}
