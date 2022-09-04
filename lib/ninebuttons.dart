@@ -24,7 +24,20 @@ class _NineButtons extends State<NineButtons> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(t.ninebuttons.ninebuttons),
+          automaticallyImplyLeading: false,
+          title: Row(
+            children: [
+              IconButton(
+                onPressed: () {
+                  loadInterstitial();
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.arrow_back),
+                splashRadius: 25,
+              ),
+              Text(t.ninebuttons.ninebuttons),
+            ],
+          ),
           backgroundColor: started ? Colors.red : Colors.blue,
         ),
         body: Center(

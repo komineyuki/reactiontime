@@ -120,7 +120,22 @@ class _MashButton extends State<MashButton> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(t.mashbutton.mashbutton)),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Row(
+          children: [
+            IconButton(
+              onPressed: () {
+                loadInterstitial();
+                Navigator.pop(context);
+              },
+              icon: const Icon(Icons.arrow_back),
+              splashRadius: 25,
+            ),
+            Text(t.mashbutton.mashbutton)
+          ],
+        ),
+      ),
       body: Center(
           child: Column(mainAxisSize: MainAxisSize.min, children: [
         Text(

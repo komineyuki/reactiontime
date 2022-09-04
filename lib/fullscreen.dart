@@ -66,8 +66,21 @@ class _FullScreen extends State<FullScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: appBarColor,
-          title: Text(i18n.t.speedTest),
+          title: Row(
+            children: [
+              IconButton(
+                onPressed: () {
+                  loadInterstitial();
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.arrow_back),
+                splashRadius: 25,
+              ),
+              Text(i18n.t.speedTest)
+            ],
+          ),
         ),
         body: Container(
             color: phase <= 1

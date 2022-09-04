@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -67,7 +68,7 @@ void main() async {
   prefs.getString("lan") == null
       ? LocaleSettings.useDeviceLocale()
       : LocaleSettings.setLocaleRaw(prefs.getString("lan")!);
-  MobileAds.instance.initialize().then((value) => AdInterstitial().createAd());
+  MobileAds.instance.initialize();
 
   runApp(MultiProvider(providers: [
     ListenableProvider(create: (context) => MainModel()),
@@ -167,10 +168,11 @@ Widget startButton(BuildContext context, Widget page,
           borderRadius: BorderRadius.circular(10),
         ),
         primary: darkmodeDisabled(context) ? Colors.white : Colors.white),
-    onPressed: () =>
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      return page;
-    })),
+    onPressed: () {
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+        return page;
+      }));
+    },
     child: Center(
         child: Column(mainAxisSize: MainAxisSize.min, children: [
       Image.asset("assets/images/$imageName.png", width: 50, height: 50),
@@ -188,65 +190,9 @@ bool darkmodeDisabled(BuildContext context) {
   return MediaQuery.of(context).platformBrightness != Brightness.dark;
 }
 
-class AppOpenAdManager {
-  String adUnitId = Platform.isAndroid
-      ? 'ca-app-pub-6224025297466109/7432060742'
-      : 'ca-app-pub-6224025297466109/7069346087';
-
-  AppOpenAd? _appOpenAd;
-  bool _isShowingAd = false;
-
-  void loadAd() {
-    AppOpenAd.load(
-      adUnitId: adUnitId,
-      orientation: AppOpenAd.orientationPortrait,
-      request: AdRequest(),
-      adLoadCallback: AppOpenAdLoadCallback(
-        onAdLoaded: (ad) {
-          _appOpenAd = ad;
-        },
-        onAdFailedToLoad: (error) {
-          print('AppOpenAd failed to load: $error');
-          // Handle the error.
-        },
-      ),
-    );
-  }
-
-  /// Whether an ad is available to be shown.
-  bool get isAdAvailable {
-    return _appOpenAd != null;
-  }
-
-  void showAdIfAvailable() {
-    if (!isAdAvailable) {
-      print('Tried to show ad before available.');
-      loadAd();
-      return;
-    }
-    if (_isShowingAd) {
-      print('Tried to show ad while already showing an ad.');
-      return;
-    }
-    // Set the fullScreenContentCallback and show the ad.
-    _appOpenAd!.fullScreenContentCallback = FullScreenContentCallback(
-      onAdShowedFullScreenContent: (ad) {
-        _isShowingAd = true;
-        print('$ad onAdShowedFullScreenContent');
-      },
-      onAdFailedToShowFullScreenContent: (ad, error) {
-        print('$ad onAdFailedToShowFullScreenContent: $error');
-        _isShowingAd = false;
-        ad.dispose();
-        _appOpenAd = null;
-      },
-      onAdDismissedFullScreenContent: (ad) {
-        print('$ad onAdDismissedFullScreenContent');
-        _isShowingAd = false;
-        ad.dispose();
-        _appOpenAd = null;
-        loadAd();
-      },
-    );
+void loadInterstitial() {
+  int i = Random().nextInt(6);
+  if (i == 0) {
+    AdInterstitial().createAd();
   }
 }
